@@ -89,7 +89,6 @@ CREATE TABLE `category` (
   `board_id` int DEFAULT NULL,
   `category_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `category_name` (`category_name`),
   KEY `board_id` (`board_id`),
   CONSTRAINT `category_ibfk_1` FOREIGN KEY (`board_id`) REFERENCES `board` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
