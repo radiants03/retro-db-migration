@@ -55,12 +55,18 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `insert_default_categories` AFTER INSERT ON `board` FOR EACH ROW BEGIN
-    INSERT INTO `category` (board_id, category_name) VALUES
-    (NEW.id, 'What went well'),
-    (NEW.id, 'To improve'),
-    (NEW.id, 'Actions'),
-    (NEW.id, 'Others');
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `insert_default_categories` AFTER INSERT ON `board` FOR EACH ROW BEGIN
+
+    INSERT INTO `category` (board_id, category_name) VALUES
+
+    (NEW.id, 'What went well'),
+
+    (NEW.id, 'To improve'),
+
+    (NEW.id, 'Actions'),
+
+    (NEW.id, 'Others');
+
 END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -163,7 +169,8 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255),
   `password` varchar(255) NOT NULL,
   `pic_url` text,
   `is_anonymous` tinyint DEFAULT '0',

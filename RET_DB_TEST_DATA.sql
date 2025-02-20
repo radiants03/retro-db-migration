@@ -1,8 +1,8 @@
 -- Insert default user data
-INSERT INTO `user` (email, username, password, pic_url, is_anonymous)
+INSERT INTO `user` (email, first_name, last_name, password, pic_url, is_anonymous)
 VALUES
-('john.doe@example.com', 'john_doe', 'hashed_password_123', 'https://example.com/john.jpg', 0),
-('jane.smith@example.com', 'jane_smith', 'hashed_password_456', 'https://example.com/jane.jpg', 1);
+('john@abc.com', 'john', 'doe', '123', 'https://example.com/john.jpg', 0),
+('smith@abc.com', 'jane', 'smith', '456', 'https://example.com/jane.jpg', 1);
 
 -- Insert default board data (this will trigger the insertion of default categories)
 INSERT INTO `board` (user_id, title, show_name, show_like, show_comments, is_public)
