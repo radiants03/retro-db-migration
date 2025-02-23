@@ -87,6 +87,7 @@ CREATE TABLE `card` (
   `content` varchar(255) NOT NULL,
   `like_count` int DEFAULT NULL,
   `dislike_count` int DEFAULT NULL,
+  `username` varchar(255),
   `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
