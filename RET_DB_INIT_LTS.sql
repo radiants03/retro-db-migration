@@ -87,7 +87,7 @@ CREATE TABLE `card` (
   `content` varchar(255) NOT NULL,
   `like_count` int DEFAULT NULL,
   `dislike_count` int DEFAULT NULL,
-  `username` varchar(255),
+  `username` varchar(255) DEFAULT NULL,
   `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -161,6 +161,31 @@ LOCK TABLES `comment` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `refreshtoken`
+--
+
+DROP TABLE IF EXISTS `refreshtoken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `refreshtoken` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `token` text,
+  `user_id` int DEFAULT NULL,
+  `expiryDate` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `refreshtoken`
+--
+
+LOCK TABLES `refreshtoken` WRITE;
+/*!40000 ALTER TABLE `refreshtoken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `refreshtoken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
@@ -171,7 +196,7 @@ CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255),
+  `last_name` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `pic_url` text,
   `is_anonymous` tinyint DEFAULT '0',
@@ -192,18 +217,6 @@ LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
-DROP TABLE IF EXISTS `refreshtoken`;
-CREATE TABLE `refreshtoken` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `token` text,
-  `user_id` int DEFAULT NULL,
-  `expiryDate` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-LOCK TABLES `refreshtoken` WRITE;
-UNLOCK TABLES;
-
 --
 -- Dumping routines for database 'ret'
 --
@@ -217,4 +230,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-15 13:02:14
+-- Dump completed on 2025-04-17 15:19:27
