@@ -192,6 +192,18 @@ LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS `refreshtoken`;
+CREATE TABLE `refreshtoken` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `token` text,
+  `user_id` int DEFAULT NULL,
+  `expiryDate` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `refreshtoken` WRITE;
+UNLOCK TABLES;
+
 --
 -- Dumping routines for database 'ret'
 --
