@@ -141,7 +141,7 @@ DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `id` int NOT NULL AUTO_INCREMENT,
   `card_id` int DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
   `content` varchar(255) NOT NULL,
   `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -230,4 +230,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-17 15:19:27
+-- Dump completed on 2025-04-23 11:33:55
